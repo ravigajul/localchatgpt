@@ -1,25 +1,42 @@
 h1 {
-    color: forestgreen;
+    color: black;
 }
 
 img {
     width: 100px;
     height: 100px;
 }
-p {
+header {
     background-color: royalblue;
     color: #fff;
     padding: 20px;
-    text-align: center;
+    text-align: left;
 }
   
-p {
+footer {
     background-color: royalblue;
     color: #fff;
     padding: 10px;
-    text-align: center;
+    text-align: left;
     position: absolute;
     bottom: 0;
     width: 100%;
   }
+
+  #myTextArea {
+    font-size: 16px; /* set the default font size */
+    width: 100%; /* set the width to fill the parent container */
+    min-height: 80px; /* set a minimum height */
+    resize: auto; /* disable resizing */
+    overflow: auto; /* hide overflow text */
+  }
+  Finally, add some JavaScript to autoscale the text area based on the text inside it:
+  javascript
+  Copy code
+  const textArea = document.getElementById("myTextArea");
+  
+  textArea.addEventListener("input", () => {
+    textArea.style.height = "auto"; // reset the
+  
+  
   

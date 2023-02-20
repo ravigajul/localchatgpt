@@ -1,4 +1,5 @@
 import * as dotenv from "dotenv";
+import * as utils from "./utils/utils.js"
 //loading the .env configuration
 dotenv.config();
 import { Configuration, OpenAIApi } from "openai";
@@ -14,8 +15,11 @@ const imageSource = path.join(__dirname,"../public/img")
 const viewsPath=path.join(__dirname,"../templates/views")
 const partialsPath=path.join(__dirname,"../templates/partials")
 
-////to render static html pages
-//app.use(express.static(publicDirectory))
+
+const configuration = new Configuration({
+  //retrieving the api key from env file
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 //Handle bars for dyanamic templating
 import  hbs from "hbs"
@@ -27,17 +31,31 @@ app.set('views',viewsPath)
 //registering partials to render partials
 hbs.registerPartials(partialsPath)
 
-app.get('/index',(req,res)=>{
-  if(!req.query.ask){
-    res.send("Please type your query")
-  }
+//setup static directory to server
+app.use(express.static(publicDirectory))
+
+app.get('',(req,res)=>{
   res.render('index',{
     body:"This is a demo chatGPT page!",
-    title:"ChatGPT-Testing",
-    name:"Ravi Gajul"
+      title:"ChatGPT-Testing",
+      name:"Ravi Gajul"
   })
 })
-
+/* app.get('/index',(req,res)=>{
+  const textPrompt = req.query.prompt
+  debugger
+   if(!textPrompt){
+   return res.send("Please type your query")
+  } 
+  utils.getResponse(textPrompt , (error,data)=>{
+    res.render('index',{
+      body:"This is a demo chatGPT page!",
+      title:"ChatGPT-Testing",
+      name:"Ravi Gajul",
+      result:data
+    })
+  })
+}) */
 app.get('/help',(req,res)=>{
   res.render('help',{
     body:"If you need any help with the app, please contact me at ravi.gajul@icloud.com.\nYou can also refer to our documentation for detailed instructions on using the app and integrating the APIs.",

@@ -2,13 +2,24 @@
 
 <head>
     <title>{{title}}</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/app.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
-    <header><p>{{>header}}</p></header>
+    <header>
+        <p>{{>header}}</p>
+    </header>
     <p>{{body}}</p>
-    <footer><p>{{>footer}}</p></footer>
-    <img src="../views/logo.png">
+
+    <form>
+        <textarea id=myTextArea placeholder="Enter your text here ..."></textarea><br>
+        <button>Send</button>
+
+    </form>
+    <p id="result"> {{result}}</p>
+    <footer>
+        <p>{{>footer}}</p>
+    </footer>
+    <script src="/js/app.js"></script>
 </body>
 </html>
