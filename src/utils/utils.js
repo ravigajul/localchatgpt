@@ -5,7 +5,7 @@ export const getResponse = (txtprompt,callback)=>{
         'method': 'POST',
         'url': 'https://api.openai.com/v1/completions',
         'headers': {
-          'Authorization': 'Bearer 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',
+          'Authorization': 'Bearer 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',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -22,7 +22,7 @@ export const getResponse = (txtprompt,callback)=>{
         debugger
         if (error) throw new Error(error);
         const data=JSON.parse(response.body)
-        console.log(data.choices[0].text);
+        console.log(data)
         callback(undefined,data.choices[0].text);
       });  
 }

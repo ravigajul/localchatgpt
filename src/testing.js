@@ -41,7 +41,7 @@ app.get('',(req,res)=>{
       name:"Ravi Gajul"
   })
 })
-/* app.get('/index',(req,res)=>{
+app.get('/index',(req,res)=>{
   const textPrompt = req.query.prompt
   debugger
    if(!textPrompt){
@@ -55,7 +55,7 @@ app.get('',(req,res)=>{
       result:data
     })
   })
-}) */
+})
 app.get('/help',(req,res)=>{
   res.render('help',{
     body:"If you need any help with the app, please contact me at ravi.gajul@icloud.com.\nYou can also refer to our documentation for detailed instructions on using the app and integrating the APIs.",
