@@ -6,6 +6,10 @@ img {
     width: 100px;
     height: 100px;
 }
+
+body {
+  background-color: #ffe6cc;
+}
 header {
     background-color: royalblue;
     color: #fff;
@@ -48,6 +52,8 @@ footer {
     min-height: 100px; /* set a minimum height */
     resize: auto; /* disable resizing */
     overflow: auto; /* hide overflow text */
+    background-color: #f2f2f2;
   }
+
   
   
