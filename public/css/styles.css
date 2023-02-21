@@ -13,6 +13,24 @@ header {
     text-align: left;
 }
   
+.my-button {
+  display: inline-block;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.my-button:active {
+  background-color: #4CAF50;
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
 footer {
     position: fixed; /* Set the position of the footer to fixed */
     bottom: 0;
@@ -27,17 +45,9 @@ footer {
   #myTextArea {
     font-size: 16px; /* set the default font size */
     width: 100%; /* set the width to fill the parent container */
-    min-height: 80px; /* set a minimum height */
+    min-height: 100px; /* set a minimum height */
     resize: auto; /* disable resizing */
     overflow: auto; /* hide overflow text */
   }
-  Finally, add some JavaScript to autoscale the text area based on the text inside it:
-  javascript
-  Copy code
-  const textArea = document.getElementById("myTextArea");
-  
-  textArea.addEventListener("input", () => {
-    textArea.style.height = "auto"; // reset the
-  
   
   
