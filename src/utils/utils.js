@@ -1,11 +1,11 @@
 import request from "postman-request"
-export const getResponse = (txtprompt,callback)=>{
+export const getResponse = (apiKey,txtprompt,callback)=>{
     debugger
     var options = {
         'method': 'POST',
         'url': 'https://api.openai.com/v1/completions',
         'headers': {
-          'Authorization': 'Bearer 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',
+          'Authorization': 'Bearer apiKey',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
