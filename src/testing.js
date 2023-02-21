@@ -16,10 +16,7 @@ const viewsPath=path.join(__dirname,"../templates/views")
 const partialsPath=path.join(__dirname,"../templates/partials")
 
 
-const configuration = new Configuration({
-  //retrieving the api key from env file
-  apiKey: process.env.OPENAI_API_KEY,
-});
+
 
 //Handle bars for dyanamic templating
 import  hbs from "hbs"
@@ -47,7 +44,11 @@ app.get('/index',(req,res)=>{
    if(!textPrompt){
    return res.send("Please type your query")
   } 
-  utils.getResponse(textPrompt , (error,data)=>{
+  const configuration = new Configuration({
+    //retrieving the api key from env file
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+  utils.getResponse(apiKey, textPrompt , (error,data)=>{
     res.render('index',{
       body:"This is a demo chatGPT page!",
       title:"ChatGPT-Testing",
@@ -72,7 +73,7 @@ app.get('/about',(req,res)=>{
   })
 })
 
-var prompt= process.argv[2]
+/* var prompt= process.argv[2]
 app.get('/ask',async (req,res)=>{
  const configuration = new Configuration({
   //retrieving the api key from env file
@@ -86,8 +87,8 @@ const response = await openai.createCompletion({
   temperature: 0.1,
 });
 console.log(response.data.choices[0].text) 
-res.send(response.data.choices[0].text)
-})
+res .send(response.data.choices[0].text)
+})*/
 
 
 app.listen(3000,()=>{
