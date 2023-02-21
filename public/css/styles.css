@@ -8,14 +8,19 @@ img {
 }
 
 body {
-  background-color: #ffe6cc;
+  background-color: white;
 }
 header {
-    background-color: royalblue;
+    background-color: darkgoldenrod;
     color: #fff;
     padding: 20px;
     text-align: left;
 }
+
+.header a {
+  color: red;
+}
+
   
 .my-button {
   display: inline-block;
@@ -38,7 +43,7 @@ header {
 footer {
     position: fixed; /* Set the position of the footer to fixed */
     bottom: 0;
-    background-color: royalblue;
+    background-color: darkgoldenrod;
     color: #fff;
     padding: 10px;
     text-align: left;
