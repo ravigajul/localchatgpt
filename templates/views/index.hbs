@@ -14,11 +14,14 @@
     <form>
         <textarea id=myTextArea placeholder="Enter your text here ..."></textarea><br>
         <button>Send</button>
-
     </form>
-    <p id="result"> {{result}}</p>
+    <pre>
+        <code>
+            <p id="result">{{result}}</p>
+        </code>
+    </pre>    
     <footer>
-        <p>{{>footer}}</p>
+        {{>footer}}
     </footer>
     <script src="/js/app.js"></script>
 </body>

@@ -14,12 +14,13 @@ header {
 }
   
 footer {
+    position: fixed; /* Set the position of the footer to fixed */
+    bottom: 0;
     background-color: royalblue;
     color: #fff;
     padding: 10px;
     text-align: left;
-    position: absolute;
-    bottom: 0;
+    position: relative;
     width: 100%;
   }
 
