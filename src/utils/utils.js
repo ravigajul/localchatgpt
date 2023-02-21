@@ -5,7 +5,7 @@ export const getResponse = (apiKey,txtprompt,callback)=>{
         'method': 'POST',
         'url': 'https://api.openai.com/v1/completions',
         'headers': {
-          'Authorization': 'Bearer apiKey',
+          'Authorization': 'Bearer '+apiKey,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({

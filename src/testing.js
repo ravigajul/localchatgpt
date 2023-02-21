@@ -48,7 +48,8 @@ app.get('/index',(req,res)=>{
     //retrieving the api key from env file
     apiKey: process.env.OPENAI_API_KEY,
   });
-  utils.getResponse(apiKey, textPrompt , (error,data)=>{
+  debugger
+  utils.getResponse(configuration.apiKey, textPrompt , (error,data)=>{
     res.render('index',{
       body:"This is a demo chatGPT page!",
       title:"ChatGPT-Testing",
