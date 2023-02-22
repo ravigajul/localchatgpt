@@ -24,7 +24,7 @@ export const getResponse = (txtprompt, callback) => {
       }
 
       const data = JSON.parse(response.body);
-      console.log("This is the text data" + data.choices[0].text)
+      //console.log("This is the text data" + data.choices[0].text)
       callback(data);
     });
   } catch (err) {
