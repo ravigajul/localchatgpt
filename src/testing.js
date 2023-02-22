@@ -44,13 +44,16 @@ app.get('/index',(req,res)=>{
    if(!textPrompt){
    return res.send("Please type your query")
   } 
-  const configuration = new Configuration({
+  /* const configuration = new Configuration({
     //retrieving the api key from env file
     apiKey: process.env.OPENAI_API_KEY,
-  });
+  }); */
   debugger
-  utils.getResponse(configuration.apiKey, textPrompt , (error,data)=>{
-    res.render('index',{
+  utils.getResponse(textPrompt , (data)=>{
+    debugger
+    console.log(data)
+    res.send(
+      {
       body:"This is a demo chatGPT page!",
       title:"ChatGPT-Testing",
       name:"Ravi Gajul",
@@ -92,7 +95,7 @@ res .send(response.data.choices[0].text)
 })*/
 
 
-app.listen(3000,()=>{
+app.listen(3001,()=>{
     console.log('The server is up and running in 3 seconds')
     console.log('open a browser and invoke localhost:3000/help')
 })
