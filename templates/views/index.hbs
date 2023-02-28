@@ -11,11 +11,15 @@
     </header>
     <p>{{body}}</p>
 
-    <form>
+    <form id="get-resp">
         <textarea id=myTextArea placeholder="Enter your text here ..."></textarea><br><br>
-        <button class="my-button">Send</button>
+        <button class="my-button">GET</button>
     </form>
         <textarea id="result">{{result}}</textarea> <br><br>
+    <form id="post-resp">
+        <button class="my-button">POST</button>
+    </form>
+        <textarea id="result2">{{result}}</textarea> <br><br>
     <footer>
         {{>footer}}
     </footer>

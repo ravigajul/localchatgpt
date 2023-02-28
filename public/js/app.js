@@ -2,41 +2,16 @@
 //dotenv.config();
 //import { Configuration, OpenAIApi } from "openai";
 console.log("app.js client side javascript is loaded!!");
-const textForm = document.querySelector("form");
+const textForm = document.querySelector("form#get-resp");
+const postForm = document.querySelector("form#post-resp");
 const textSearchValue = document.querySelector("#myTextArea");
 const txtResult = document.querySelector("#result");
+const jiraResult = document.querySelector("#result2");
+const jiraurl = 'https://openaipocjira.atlassian.net/rest/api/2/issue/';
+const token = 'cmF2aS5nYWp1bDIyQGdtYWlsLmNvbTpBVEFUVDN4RmZHRjBuV3VVZzVTNmJGUFZud0I2a29iYkctVjUwdmNzY0x5YzRzcG9mTzY3NVRwNVI0WGRnYldWb2pLVVdkMmkyNTc4Nzdkd2ZiR0EydmlJVUJ6NFlZZEhKV241SGhuU29oQVFEUW1COFdjeE02S0xtZzNNTy10dzFSTjJCN0pTWWMtYXp3MkhIWk9kWmFFQVBRUjlWT3VKRTkxLU96bFhKR3VKS3dWdG1xZXVHRzg9NDY0QjhEQkI=';
 textForm.addEventListener("submit", (e) => {
   //prevent the browser from refreshing
   e.preventDefault();
-  //const params = new URLSearchParams();
-  //params.append("prompt", "index");
-  //fetch('http://localhost:3000/index?prompt='+params)
-  // debugger
-  //console.log("sending request");
-  // alert(textSearchValue);
-  // document.querySelector("#result").textContent = "dddd";
-  //encodeURIComponent(document.querySelector('#myTextArea').value)
-  //alert('inside event handler')
-  //alert('http://localhost:3000/index?prompt=' +  encodeURIComponent(document.querySelector('#myTextArea').value))
-  //window.location.href='http://localhost:3000/index?prompt=' +  encodeURIComponent(document.querySelector('#myTextArea').value)
-  /*fetch('/index?prompt=' + "newTest").then((response)=>{
-   
-    response.json().then((data)=>{
-        // debugger
-        alert('ok')
-        // if(data.error){
-        //     console.log(data.error)
-        //     messageOne.textContent = data.error
-        //     messageTwo.textContent = ""
-        // }else{
-          document.querySelector('#result').textContent = data
-        //     messageTwo.textContent =data.forcast
-        //     console.log(data.location)
-        //     console.log(data.forcast)
-        // // 
-      })})
-    
-    */
   const prompt = textSearchValue.value;
   debugger;
   fetch('/index?prompt=' + encodeURIComponent(prompt))
@@ -49,3 +24,19 @@ textForm.addEventListener("submit", (e) => {
       console.log("Error occurred: ", error);
     });
 });
+
+postForm.addEventListener("submit", (e) => {
+  //prevent the browser from refreshing
+  e.preventDefault();
+  const postdata = document.querySelector('#result').value
+  fetch('/posttojira?postdata='+encodeURIComponent(postdata))
+  .then((response) => {
+    response.json().then((data) => {
+      console.log('Success:', data.data)
+      jiraResult.textContent=JSON.stringify(data.data)
+    })
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+})
