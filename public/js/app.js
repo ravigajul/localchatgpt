@@ -29,11 +29,12 @@ postForm.addEventListener("submit", (e) => {
   //prevent the browser from refreshing
   e.preventDefault();
   const postdata = document.querySelector('#result').value
-  fetch('/posttojira?postdata='+encodeURIComponent(postdata))
+  const trimmedStr = postdata.replace(/^[\r\n]+|[\r\n]+$/gm, '');
+  fetch('/posttojira?postdata='+encodeURIComponent(trimmedStr))
   .then((response) => {
     response.json().then((data) => {
       console.log('Success:', data.data)
-      jiraResult.textContent=JSON.stringify(data.data)
+      jiraResult.textContent="Test Case with KEY : " + data.data.key + " is posted to JIRA"
     })
   })
   .catch((error) => {
