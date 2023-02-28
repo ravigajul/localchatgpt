@@ -41,7 +41,7 @@ export const postToJira = (postData,callback) => {
       headers: {
         "Content-Type": "application/json",
         Authorization:
-          "Basic cmF2aS5nYWp1bDIyQGdtYWlsLmNvbTpBVEFUVDN4RmZHRjBuV3VVZzVTNmJGUFZud0I2a29iYkctVjUwdmNzY0x5YzRzcG9mTzY3NVRwNVI0WGRnYldWb2pLVVdkMmkyNTc4Nzdkd2ZiR0EydmlJVUJ6NFlZZEhKV241SGhuU29oQVFEUW1COFdjeE02S0xtZzNNTy10dzFSTjJCN0pTWWMtYXp3MkhIWk9kWmFFQVBRUjlWT3VKRTkxLU96bFhKR3VKS3dWdG1xZXVHRzg9NDY0QjhEQkI=",
+          "Basic "+ process.env.JIRA_API_KEY,
       },
       body: JSON.stringify({
         fields: {
@@ -71,3 +71,20 @@ export const postToJira = (postData,callback) => {
     }
   }
 };
+
+
+export const extractTestScenarios=(jsonObj)=> {
+ // const obj = JSON.parse(jsonObj);
+  const choices = obj.choices;
+
+  const scenarios = [];
+  for (let i = 0; i < choices.length; i++) {
+    const text = choices[i].text;
+    const match = text.match(/Scenario: [\s\S]*?(?=Scenario:|$)/g);
+    if (match) {
+      scenarios.push(match);
+    }
+  }
+
+  return scenarios;
+}

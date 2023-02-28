@@ -8,7 +8,6 @@ const textSearchValue = document.querySelector("#myTextArea");
 const txtResult = document.querySelector("#result");
 const jiraResult = document.querySelector("#result2");
 const jiraurl = 'https://openaipocjira.atlassian.net/rest/api/2/issue/';
-const token = 'cmF2aS5nYWp1bDIyQGdtYWlsLmNvbTpBVEFUVDN4RmZHRjBuV3VVZzVTNmJGUFZud0I2a29iYkctVjUwdmNzY0x5YzRzcG9mTzY3NVRwNVI0WGRnYldWb2pLVVdkMmkyNTc4Nzdkd2ZiR0EydmlJVUJ6NFlZZEhKV241SGhuU29oQVFEUW1COFdjeE02S0xtZzNNTy10dzFSTjJCN0pTWWMtYXp3MkhIWk9kWmFFQVBRUjlWT3VKRTkxLU96bFhKR3VKS3dWdG1xZXVHRzg9NDY0QjhEQkI=';
 textForm.addEventListener("submit", (e) => {
   //prevent the browser from refreshing
   e.preventDefault();
